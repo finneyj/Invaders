@@ -1,21 +1,21 @@
 public class SpaceInvaders
 {
+	private int numberOfBaddiesPerRow = 6;
+	private int numberOfBaddieRows = 4;
+	private int numberOfBaddies = numberOfBaddiesPerRow * numberOfBaddieRows;
+	private double baddieSpeed = 1.0;
+	private double goodGuySpeed = 11.0;
+	private double bulletSpeed = 30.0;
+	private boolean exiting = false;
+
+	private GameArena a = new GameArena(1000,650);
+
+	private CompoundShape[] baddies = new CompoundShape[numberOfBaddies];
+	private CompoundShape goodGuy = new CompoundShape(a.getArenaWidth()/2, a.getArenaHeight()-50);
+	private CompoundShape bullet = new CompoundShape(a.getArenaWidth()/2, a.getArenaHeight()-50);
+
 	public SpaceInvaders()
 	{
-		int numberOfBaddiesPerRow = 6;
-		int numberOfBaddieRows = 4;
-		int numberOfBaddies = numberOfBaddiesPerRow * numberOfBaddieRows;
-		double baddieSpeed = 1.0;
-		double goodGuySpeed = 11.0;
-		double bulletSpeed = 30.0;
-		boolean exiting = false;
-
-		GameArena a = new GameArena(1000,650);
-
-		CompoundShape[] baddies = new CompoundShape[numberOfBaddies];
-		CompoundShape goodGuy = new CompoundShape(a.getArenaWidth()/2, a.getArenaHeight()-50);
-		CompoundShape bullet = new CompoundShape(a.getArenaWidth()/2, a.getArenaHeight()-50);
-
 		// Make the GoodGuy
 		goodGuy.addRectangle(new Rectangle(0,20,50,20, "RED"));
 		goodGuy.addRectangle(new Rectangle(22,5,6,10, "GREEN"));
@@ -25,6 +25,10 @@ public class SpaceInvaders
 		bullet.addRectangle(new Rectangle(22,5,6,10, "RED"));
 		bullet.addShapeTo(a);
 
+	}
+	
+	public void start()
+	{
 		while (!exiting)
 		{
 			baddieSpeed = 1.0;
@@ -151,6 +155,7 @@ public class SpaceInvaders
 	public static void main(String[] args)
 	{
 		SpaceInvaders space = new SpaceInvaders();
+		space.start();
 	}
 
 }
