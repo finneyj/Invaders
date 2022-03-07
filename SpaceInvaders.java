@@ -1,6 +1,6 @@
 public class SpaceInvaders
 {
-	public static void main(String[] args)
+	public SpaceInvaders()
 	{
 		int numberOfBaddiesPerRow = 6;
 		int numberOfBaddieRows = 4;
@@ -147,4 +147,10 @@ public class SpaceInvaders
 			}
 		}
 	}
+
+	public static void main(String[] args)
+	{
+		SpaceInvaders space = new SpaceInvaders();
+	}
+
 }
