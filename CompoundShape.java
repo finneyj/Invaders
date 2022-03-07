@@ -66,7 +66,7 @@ public class CompoundShape
 
 	boolean collides (CompoundShape c)
 	{
-		for (int i=0; i<numberParts; i++)
+		for (int i=0; i<c.numberParts; i++)
 		{
 			for (int j=0; j<c.numberParts; j++)
 			{
